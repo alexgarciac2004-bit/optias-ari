@@ -1,0 +1,101 @@
+{
+  "project_name": "Óptica Ari",
+  "domain": "E-commerce (Professional Optical Store)",
+  "language": "es",
+  "theme": "Light with Luxury Navy/Gold Accents",
+  "archetype": "5",
+  "archetype_name": "Jewel & Luxury",
+  "design_philosophy": "A professional and high-end aesthetic conveying trust, quality, and style. The deep blue (azul profundo) grounds the brand in clinical professionalism, while the gold (dorado) elevates the user experience to luxury e-commerce. Generous negative space and crisp photography highlight the eyewear as premium artifacts.",
+  "colors": {
+    "background": "#FAFAFA",
+    "foreground": "#0B1B3D",
+    "primary": "#0B1B3D",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#FFFFFF",
+    "secondary_foreground": "#0B1B3D",
+    "accent": "#C5A059",
+    "accent_hover": "#B38F48",
+    "accent_foreground": "#FFFFFF",
+    "muted": "#F1F5F9",
+    "muted_foreground": "#64748B",
+    "border": "rgba(11, 27, 61, 0.1)",
+    "glass_bg": "rgba(255, 255, 255, 0.85)",
+    "glass_border": "rgba(11, 27, 61, 0.05)"
+  },
+  "typography": {
+    "heading_font": "Playfair Display",
+    "body_font": "Outfit",
+    "h1": "text-4xl sm:text-5xl lg:text-6xl font-serif tracking-tight text-primary",
+    "h2": "text-2xl sm:text-3xl lg:text-4xl font-serif tracking-tight text-primary",
+    "h3": "text-xl sm:text-2xl font-serif text-primary",
+    "body": "text-base font-sans text-muted_foreground leading-relaxed",
+    "label": "text-xs font-sans uppercase tracking-[0.2em] text-accent font-semibold"
+  },
+  "layout_spacing": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-20 md:py-32",
+    "grid_gap": "gap-8 md:gap-12"
+  },
+  "surfaces_and_components": {
+    "header": "Crystal Glassmorphism: bg-white/85 backdrop-blur-xl border-b border-border z-50 sticky top-0",
+    "product_card": "Solid white background, rounded-none, 1px border-border. On hover: border-accent shadow-[0_8px_30px_rgb(0,0,0,0.06)] -translate-y-1 transition-all duration-300",
+    "buttons": {
+      "primary": "bg-primary text-primary_foreground rounded-none px-8 py-4 font-medium hover:bg-primary/90 transition-colors",
+      "accent": "bg-accent text-white rounded-none px-8 py-4 font-medium hover:bg-accent_hover transition-colors",
+      "outline": "border border-primary text-primary rounded-none px-8 py-4 hover:bg-primary hover:text-white transition-colors"
+    },
+    "whatsapp_float": "fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center"
+  },
+  "motion": {
+    "hover_state": "transition-all duration-300 ease-out",
+    "page_load": "staggered fade-up for grids"
+  },
+  "iconography": {
+    "library": "@phosphor-icons/react",
+    "style": "Light or Thin weight to match the elegant serif typography."
+  },
+  "media": {
+    "images": [
+      {
+        "category": "hero_background",
+        "url": "https://images.unsplash.com/photo-1764778055595-b641b067ab40?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHwxfHxvcHRpY2FsJTIwc3RvcmUlMjBsdXh1cnl8ZW58MHx8fHwxNzc2ODk0ODIwfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Luxury optical store interior with sunglasses displayed on shelves. Use with a dark gradient overlay (bg-primary/40) if placing white text."
+      },
+      {
+        "category": "lifestyle_men",
+        "url": "https://images.unsplash.com/photo-1590305173565-f789a8dd6be7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjB3ZWFyaW5nJTIwZ2xhc3Nlc3xlbnwwfHx8fDE3NzY4OTQ4MTZ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Professional man wearing silver framed eyeglasses."
+      },
+      {
+        "category": "lifestyle_stylish",
+        "url": "https://images.unsplash.com/photo-1551283279-166ab6d719af?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHw0fHxzdHlsaXNoJTIwZXllZ2xhc3Nlc3xlbnwwfHx8fDE3NzY4OTQ4MTZ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Man with leather jacket and modern sunglasses. Great for 'Deportivo' or 'Moderno' categories."
+      },
+      {
+        "category": "product_modern",
+        "url": "https://images.pexels.com/photos/5202050/pexels-photo-5202050.jpeg",
+        "description": "Modern blue eyeglasses showcased in a glass display."
+      },
+      {
+        "category": "product_classic",
+        "url": "https://images.unsplash.com/photo-1551910021-c59ed3bf006b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHxzdHlsaXNoJTIwZXllZ2xhc3Nlc3xlbnwwfHx8fDE3NzY4OTQ4MTZ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Classic gray framed eyeglasses on white background."
+      },
+      {
+        "category": "product_colorful",
+        "url": "https://images.pexels.com/photos/27544587/pexels-photo-27544587.jpeg",
+        "description": "Vibrant eyeglasses on pastel surface. Good for 'Infantil' or 'Oversize'."
+      }
+    ]
+  },
+  "specific_instructions_to_main_agent": [
+    "Language MUST be exclusively Spanish.",
+    "Implement the floating WhatsApp button using the number 9995106899.",
+    "Ensure the hero heading does not use Inter. Use Playfair Display.",
+    "Do not use generic blue defaults. The primary blue MUST be the deep navy (#0B1B3D).",
+    "Use Phosphor Icons (Thin/Light weight) for all UI icons (cart, user, filter).",
+    "Every interactive element (button, select, input, cart icon) must have a data-testid attribute in kebab-case based on its role.",
+    "In the Admin panel, use Shadcn Table for managing products, applying the same deep navy/gold high-contrast styling.",
+    "Do not use rounded heavy shadows. Follow the 'Crisp/Neumorphism' surface strategy for product cards (1px borders, white bg, subtle hover lift)."
+  ]
+}
