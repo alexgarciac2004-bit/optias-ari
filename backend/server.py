@@ -308,7 +308,19 @@ async def checkout_status(session_id: str, http_request: Request):
 
     webhook_url = f"{str(http_request.base_url).rstrip('/')}/api/webhook/stripe"
     stripe_checkout = StripeCheckout(api_key=STRIPE_API_KEY, webhook_url=webhook_url)
-    status_resp: CheckoutStatusResponse = await stripe_checkout.get_checkout_status(session_id)
+    try:
+        status_resp: CheckoutStatusResponse = await stripe_checkout.get_checkout_status(session_id)
+    except Exception as e:
+        logging.error(f"Stripe get_checkout_status error: {e}")
+        # Return current stored status if Stripe is unreachable/unknown
+        return {
+            "session_id": session_id,
+            "status": tx.get("status", "open"),
+            "payment_status": tx.get("payment_status", "initiated"),
+            "amount_total": int(round(tx.get("amount", 0) * 100)),
+            "currency": tx.get("currency", "mxn"),
+            "note": "stripe_unavailable",
+        }
 
     await db.payment_transactions.update_one(
         {"session_id": session_id},
