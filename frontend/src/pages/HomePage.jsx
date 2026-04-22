@@ -36,7 +36,7 @@ export default function HomePage() {
                 Ver catálogo <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/529995106899?text=Hola%20%C3%93ptica%20Ari%2C%20me%20gustar%C3%ADa%20una%20cotizaci%C3%B3n."
+                href="https://wa.me/529995108699?text=Hola%20%C3%93ptica%20Ari%2C%20me%20gustar%C3%ADa%20una%20cotizaci%C3%B3n."
                 target="_blank"
                 rel="noreferrer"
                 className="inline-block px-8 py-[14px] border border-white text-white hover:bg-white hover:text-[#0B1B3D] transition-colors font-medium tracking-wide"

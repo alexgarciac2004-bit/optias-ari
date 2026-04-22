@@ -35,7 +35,7 @@ export default function ContactPage() {
               <Phone className="w-5 h-5 text-[#C5A059] shrink-0 mt-1" strokeWidth={1.2} />
               <div>
                 <div className="eyebrow mb-1">Teléfono / WhatsApp</div>
-                <a href={waLink("Hola Óptica Ari")} target="_blank" rel="noreferrer" className="font-serif text-2xl text-[#0B1B3D] hover:text-[#C5A059]">999 510 6899</a>
+                <a href={waLink("Hola Óptica Ari")} target="_blank" rel="noreferrer" className="font-serif text-2xl text-[#0B1B3D] hover:text-[#C5A059]">999 510 8699</a>
               </div>
             </li>
             <li className="flex gap-4">
