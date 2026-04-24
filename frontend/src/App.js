@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 
 import { CartProvider } from "./context/CartContext";
+import TopBar from "./components/TopBar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppFloat from "./components/WhatsAppFloat";
@@ -29,6 +30,7 @@ function Layout({ children }) {
   const isAdmin = loc.pathname.startsWith("/admin");
   return (
     <>
+      {!isAdmin && <TopBar />}
       {!isAdmin && <Navbar />}
       <main>{children}</main>
       {!isAdmin && <Footer />}
