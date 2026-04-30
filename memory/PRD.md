@@ -23,13 +23,15 @@
 - Floating WhatsApp CTA on all public pages
 - Password-protected admin to CRUD products, view quotes & transactions
 
-## Implemented (2026-02)
+## Implemented (2026-02 → 2026-04)
 - Public pages: Home (hero, styles grid, featured, values, split CTA), Catálogo (filters, sort), Detalle de producto, Nosotros, Contacto
+- **Reserva de citas online (`/citas`)** con calendario visual, slots dinámicos, validación servidor (conflictos, domingos cerrados, horarios fuera de servicio)
 - Cart drawer with WhatsApp quote and Stripe checkout
 - Checkout success page with polling
-- Admin login + dashboard (products table with CRUD modal, quotes list, transactions table)
-- 15 seeded demo products across all styles/types
+- Admin login + dashboard (productos, **citas con cambio de estado**, cotizaciones, transacciones)
+- 15 seeded demo products + 4 servicios de cita seedados (Examen visual, Adaptación contacto, Ajuste, Asesoría)
 - Floating WhatsApp button on all public pages
+- **TopBar** con datos de contacto + **PromoBar** rotatoria + **Mega-menú** Catálogo
 
 ## Backlog
 - P1: Email notifications on new quote (SendGrid/Resend)
