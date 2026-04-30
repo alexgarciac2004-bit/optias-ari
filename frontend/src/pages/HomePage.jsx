@@ -128,7 +128,7 @@ export default function HomePage() {
             Agenda tu examen visual o pregunta por nuestro catálogo completo. Nuestro equipo te acompaña desde la primera visita hasta la entrega final.
           </p>
           <div className="flex flex-wrap gap-4 mt-8">
-            <Link to="/contacto" className="btn-navy" data-testid="split-contact">Agendar cita</Link>
+            <Link to="/citas" className="btn-navy" data-testid="split-contact">Agendar cita</Link>
             <Link to="/catalogo" className="btn-outline-navy" data-testid="split-catalog">Ver catálogo</Link>
           </div>
         </div>

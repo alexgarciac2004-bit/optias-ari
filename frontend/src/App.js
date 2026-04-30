@@ -16,6 +16,7 @@ import CatalogPage from "./pages/CatalogPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import AppointmentPage from "./pages/AppointmentPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
@@ -55,6 +56,7 @@ function App() {
               <Route path="/producto/:id" element={<ProductDetailPage />} />
               <Route path="/nosotros" element={<AboutPage />} />
               <Route path="/contacto" element={<ContactPage />} />
+              <Route path="/citas" element={<AppointmentPage />} />
               <Route path="/pago/exito" element={<CheckoutSuccessPage />} />
               <Route path="/admin/login" element={<AdminLoginPage />} />
               <Route path="/admin" element={<AdminDashboardPage />} />

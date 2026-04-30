@@ -71,6 +71,9 @@ export default function Navbar() {
           <NavLink to="/nosotros" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#0B1B3D] hover:text-[#C5A059]"}`} data-testid="nav-nosotros">
             Nosotros
           </NavLink>
+          <NavLink to="/citas" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#0B1B3D] hover:text-[#C5A059]"}`} data-testid="nav-citas">
+            Agendar cita
+          </NavLink>
           <NavLink to="/contacto" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#0B1B3D] hover:text-[#C5A059]"}`} data-testid="nav-contacto">
             Contacto
           </NavLink>
@@ -152,6 +155,7 @@ export default function Navbar() {
             )}
 
             <Link to="/nosotros" onClick={() => setMobileOpen(false)} className="py-3 text-[#0B1B3D] font-medium" data-testid="mobile-nav-nosotros">Nosotros</Link>
+            <Link to="/citas" onClick={() => setMobileOpen(false)} className="py-3 text-[#0B1B3D] font-medium" data-testid="mobile-nav-citas">Agendar cita</Link>
             <Link to="/contacto" onClick={() => setMobileOpen(false)} className="py-3 text-[#0B1B3D] font-medium" data-testid="mobile-nav-contacto">Contacto</Link>
 
             <div className="mt-4 pt-4 border-t border-[#0B1B3D]/10 space-y-3">

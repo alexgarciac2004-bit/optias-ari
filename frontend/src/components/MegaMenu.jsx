@@ -73,12 +73,12 @@ export default function MegaMenu({ onClose }) {
           <div className="eyebrow mb-5">Servicios</div>
           <ul className="space-y-3">
             {[
-              { l: "Examen visual", to: "/nosotros" },
+              { l: "Examen visual", to: "/citas" },
               { l: "Lentes graduadas", to: "/catalogo?type=Graduados" },
-              { l: "Adaptación contacto", to: "/catalogo?type=Contacto" },
-              { l: "Ajuste y mantenimiento", to: "/nosotros" },
+              { l: "Adaptación contacto", to: "/citas" },
+              { l: "Ajuste y mantenimiento", to: "/citas" },
               { l: "Garantía 1 año", to: "/nosotros" },
-              { l: "Agendar cita", to: "/contacto" },
+              { l: "Agendar cita", to: "/citas" },
             ].map((s) => (
               <li key={s.l}>
                 <Link

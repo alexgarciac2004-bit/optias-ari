@@ -14,6 +14,7 @@ export default function AdminDashboardPage() {
   const [products, setProducts] = useState([]);
   const [quotes, setQuotes] = useState([]);
   const [transactions, setTransactions] = useState([]);
+  const [appointments, setAppointments] = useState([]);
   const [tab, setTab] = useState("products");
   const [modal, setModal] = useState(null); // null | product obj | "new"
   const [form, setForm] = useState(empty);
@@ -26,14 +27,16 @@ export default function AdminDashboardPage() {
 
   const load = async () => {
     try {
-      const [p, q, t] = await Promise.all([
+      const [p, q, t, a] = await Promise.all([
         api.get("/products"),
         api.get("/admin/quotes"),
         api.get("/admin/transactions"),
+        api.get("/admin/appointments"),
       ]);
       setProducts(p.data);
       setQuotes(q.data);
       setTransactions(t.data);
+      setAppointments(a.data);
     } catch {
       toast.error("Error cargando datos");
     }
@@ -87,6 +90,7 @@ export default function AdminDashboardPage() {
       <div className="flex gap-1 mb-8 border-b border-[#0B1B3D]/10">
         {[
           { k: "products", l: `Productos (${products.length})` },
+          { k: "appointments", l: `Citas (${appointments.length})` },
           { k: "quotes", l: `Cotizaciones (${quotes.length})` },
           { k: "transactions", l: `Transacciones (${transactions.length})` },
         ].map((t) => (
@@ -164,6 +168,70 @@ export default function AdminDashboardPage() {
           ))}
         </div>
       )}
+
+      {tab === "appointments" && (
+        <div className="overflow-x-auto border border-[#0B1B3D]/10" data-testid="appointments-table">
+          <table className="w-full text-sm">
+            <thead className="bg-[#0B1B3D] text-white">
+              <tr>
+                <th className="text-left p-3">Fecha · Hora</th>
+                <th className="text-left p-3">Cliente</th>
+                <th className="text-left p-3">Servicio</th>
+                <th className="text-left p-3">Contacto</th>
+                <th className="text-left p-3">Estado</th>
+                <th className="text-right p-3">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {appointments.length === 0 && <tr><td colSpan={6} className="p-8 text-center text-[#64748B]">Sin citas registradas.</td></tr>}
+              {appointments.map((a) => (
+                <tr key={a.id} className="border-t border-[#0B1B3D]/10" data-testid={`appt-row-${a.id}`}>
+                  <td className="p-3 font-medium text-[#0B1B3D]">{a.date} · {a.time}</td>
+                  <td className="p-3">{a.customer_name}</td>
+                  <td className="p-3">{a.service}</td>
+                  <td className="p-3 text-xs">
+                    <div>{a.customer_phone}</div>
+                    {a.customer_email && <div className="text-[#64748B]">{a.customer_email}</div>}
+                  </td>
+                  <td className="p-3">
+                    <select
+                      value={a.status}
+                      onChange={async (e) => {
+                        try {
+                          await api.put(`/admin/appointments/${a.id}`, { status: e.target.value });
+                          toast.success("Estado actualizado");
+                          load();
+                        } catch { toast.error("Error"); }
+                      }}
+                      className={`px-2 py-1 text-xs border ${a.status === "confirmed" ? "bg-green-50 text-green-700 border-green-300" : a.status === "completed" ? "bg-blue-50 text-blue-700 border-blue-300" : a.status === "cancelled" ? "bg-red-50 text-red-700 border-red-300" : "bg-amber-50 text-amber-700 border-amber-300"}`}
+                      data-testid={`appt-status-${a.id}`}
+                    >
+                      <option value="pending">Pendiente</option>
+                      <option value="confirmed">Confirmada</option>
+                      <option value="completed">Completada</option>
+                      <option value="cancelled">Cancelada</option>
+                    </select>
+                  </td>
+                  <td className="p-3 text-right">
+                    <button
+                      onClick={async () => {
+                        if (!window.confirm("¿Eliminar esta cita?")) return;
+                        try { await api.delete(`/admin/appointments/${a.id}`); toast.success("Eliminada"); load(); }
+                        catch { toast.error("Error"); }
+                      }}
+                      className="p-2 text-[#0B1B3D] hover:text-red-500"
+                      data-testid={`appt-delete-${a.id}`}
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
 
       {tab === "transactions" && (
         <div className="overflow-x-auto border border-[#0B1B3D]/10" data-testid="transactions-table">

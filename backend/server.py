@@ -175,6 +175,136 @@ async def create_quote(q: QuoteRequest):
     return {"ok": True, "id": doc["id"]}
 
 
+# ---------- Routes: Appointments ----------
+SERVICES = {
+    "Examen visual completo": 30,
+    "Adaptación lentes de contacto": 45,
+    "Ajuste y mantenimiento": 15,
+    "Asesoría de marcos": 30,
+}
+# Hours: Mon-Sat 9:00-19:00, lunch 14:00-15:00. Sunday closed.
+WORK_HOURS = [(9, 14), (15, 19)]
+
+
+def _generate_slots() -> List[str]:
+    slots = []
+    for start_h, end_h in WORK_HOURS:
+        h = start_h
+        m = 0
+        while h < end_h or (h == end_h and m == 0):
+            if h == end_h and m > 0:
+                break
+            slots.append(f"{h:02d}:{m:02d}")
+            m += 30
+            if m >= 60:
+                m = 0
+                h += 1
+    return slots
+
+
+class AppointmentCreate(BaseModel):
+    customer_name: str
+    customer_phone: str
+    customer_email: Optional[str] = ""
+    service: str
+    date: str  # YYYY-MM-DD
+    time: str  # HH:MM
+    notes: Optional[str] = ""
+
+
+class AppointmentStatusUpdate(BaseModel):
+    status: str  # pending | confirmed | completed | cancelled
+
+
+@api_router.get("/appointments/services")
+async def list_services():
+    return [{"name": k, "duration_min": v} for k, v in SERVICES.items()]
+
+
+@api_router.get("/appointments/availability")
+async def get_availability(date: str):
+    try:
+        d = datetime.strptime(date, "%Y-%m-%d")
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Fecha inválida (use YYYY-MM-DD)")
+    if d.weekday() == 6:  # Sunday
+        return {"date": date, "slots": [], "closed": True, "reason": "Domingo cerrado"}
+    all_slots = _generate_slots()
+    taken = await db.appointments.find(
+        {"date": date, "status": {"$in": ["pending", "confirmed"]}},
+        {"_id": 0, "time": 1},
+    ).to_list(200)
+    taken_set = {t["time"] for t in taken}
+    available = [s for s in all_slots if s not in taken_set]
+    return {"date": date, "slots": available, "taken": list(taken_set), "closed": False}
+
+
+@api_router.post("/appointments")
+async def create_appointment(a: AppointmentCreate):
+    if a.service not in SERVICES:
+        raise HTTPException(status_code=400, detail="Servicio no válido")
+    try:
+        d = datetime.strptime(a.date, "%Y-%m-%d")
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Fecha inválida")
+    if d.weekday() == 6:
+        raise HTTPException(status_code=400, detail="No hay servicio los domingos")
+    if a.time not in _generate_slots():
+        raise HTTPException(status_code=400, detail="Horario fuera de servicio")
+    # Check no other active appointment for that date+time
+    conflict = await db.appointments.find_one(
+        {"date": a.date, "time": a.time, "status": {"$in": ["pending", "confirmed"]}},
+        {"_id": 0},
+    )
+    if conflict:
+        raise HTTPException(status_code=409, detail="Ese horario ya fue reservado")
+    doc = {
+        "id": str(uuid.uuid4()),
+        "customer_name": a.customer_name,
+        "customer_phone": a.customer_phone,
+        "customer_email": a.customer_email or "",
+        "service": a.service,
+        "date": a.date,
+        "time": a.time,
+        "notes": a.notes or "",
+        "status": "pending",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    await db.appointments.insert_one(doc.copy())
+    return {"ok": True, "id": doc["id"], "appointment": doc}
+
+
+@api_router.get("/admin/appointments")
+async def list_appointments(_: dict = Depends(verify_admin), status_filter: Optional[str] = None):
+    q = {}
+    if status_filter:
+        q["status"] = status_filter
+    items = await db.appointments.find(q, {"_id": 0}).sort([("date", 1), ("time", 1)]).to_list(1000)
+    return items
+
+
+@api_router.put("/admin/appointments/{appointment_id}")
+async def update_appointment(appointment_id: str, body: AppointmentStatusUpdate, _: dict = Depends(verify_admin)):
+    if body.status not in ("pending", "confirmed", "completed", "cancelled"):
+        raise HTTPException(status_code=400, detail="Estado inválido")
+    res = await db.appointments.update_one(
+        {"id": appointment_id},
+        {"$set": {"status": body.status, "updated_at": datetime.now(timezone.utc).isoformat()}},
+    )
+    if res.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Cita no encontrada")
+    appt = await db.appointments.find_one({"id": appointment_id}, {"_id": 0})
+    return appt
+
+
+@api_router.delete("/admin/appointments/{appointment_id}")
+async def delete_appointment(appointment_id: str, _: dict = Depends(verify_admin)):
+    res = await db.appointments.delete_one({"id": appointment_id})
+    if res.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Cita no encontrada")
+    return {"ok": True}
+
+
 # ---------- Routes: Admin Auth ----------
 @api_router.post("/auth/login", response_model=LoginResponse)
 async def login(req: LoginRequest):
@@ -229,7 +359,6 @@ async def list_transactions(_: dict = Depends(verify_admin)):
     return txs
 
 
-# ---------- Routes: Stripe Checkout ----------
 @api_router.post("/checkout/session")
 async def create_checkout(req: CheckoutRequest, http_request: Request):
     if not req.items:
