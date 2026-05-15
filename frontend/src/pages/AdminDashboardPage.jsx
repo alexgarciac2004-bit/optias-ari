@@ -80,14 +80,14 @@ export default function AdminDashboardPage() {
       <div className="flex items-center justify-between mb-10">
         <div>
           <div className="eyebrow mb-2">Panel Admin</div>
-          <h1 className="font-serif text-4xl text-[#0B1B3D]">Óptica Ari</h1>
+          <h1 className="font-serif text-4xl text-[#701A3D]">Óptica Ari</h1>
         </div>
-        <button onClick={logout} className="inline-flex items-center gap-2 text-sm text-[#64748B] hover:text-[#0B1B3D]" data-testid="logout-btn">
+        <button onClick={logout} className="inline-flex items-center gap-2 text-sm text-[#374151] hover:text-[#701A3D]" data-testid="logout-btn">
           <LogOut className="w-4 h-4" /> Salir
         </button>
       </div>
 
-      <div className="flex gap-1 mb-8 border-b border-[#0B1B3D]/10">
+      <div className="flex gap-1 mb-8 border-b border-[#701A3D]/10">
         {[
           { k: "products", l: `Productos (${products.length})` },
           { k: "appointments", l: `Citas (${appointments.length})` },
@@ -97,7 +97,7 @@ export default function AdminDashboardPage() {
           <button
             key={t.k}
             onClick={() => setTab(t.k)}
-            className={`px-6 py-3 text-sm border-b-2 -mb-px transition-colors ${tab === t.k ? "border-[#C5A059] text-[#0B1B3D]" : "border-transparent text-[#64748B] hover:text-[#0B1B3D]"}`}
+            className={`px-6 py-3 text-sm border-b-2 -mb-px transition-colors ${tab === t.k ? "border-[#C5A059] text-[#701A3D]" : "border-transparent text-[#374151] hover:text-[#701A3D]"}`}
             data-testid={`tab-${t.k}`}
           >
             {t.l}
@@ -112,9 +112,9 @@ export default function AdminDashboardPage() {
               <Plus className="w-4 h-4" /> Nuevo producto
             </button>
           </div>
-          <div className="overflow-x-auto border border-[#0B1B3D]/10">
+          <div className="overflow-x-auto border border-[#701A3D]/10">
             <table className="w-full text-sm" data-testid="products-table">
-              <thead className="bg-[#0B1B3D] text-white">
+              <thead className="bg-[#701A3D] text-white">
                 <tr>
                   <th className="text-left p-3">Imagen</th>
                   <th className="text-left p-3">Nombre</th>
@@ -128,17 +128,17 @@ export default function AdminDashboardPage() {
               </thead>
               <tbody>
                 {products.map((p) => (
-                  <tr key={p.id} className="border-t border-[#0B1B3D]/10 hover:bg-[#F1F5F9]" data-testid={`admin-row-${p.id}`}>
-                    <td className="p-3"><img src={p.image} alt="" className="w-14 h-14 object-cover bg-[#F1F5F9]" /></td>
-                    <td className="p-3 font-medium text-[#0B1B3D]">{p.name}</td>
+                  <tr key={p.id} className="border-t border-[#701A3D]/10 hover:bg-[#FCE7F3]" data-testid={`admin-row-${p.id}`}>
+                    <td className="p-3"><img src={p.image} alt="" className="w-14 h-14 object-cover bg-[#FCE7F3]" /></td>
+                    <td className="p-3 font-medium text-[#701A3D]">{p.name}</td>
                     <td className="p-3">{p.style}</td>
                     <td className="p-3">{p.type}</td>
                     <td className="p-3 text-right">${p.price.toLocaleString("es-MX")}</td>
                     <td className="p-3 text-center">{p.stock}</td>
                     <td className="p-3 text-center">{p.featured ? "⭐" : "—"}</td>
                     <td className="p-3 text-right">
-                      <button onClick={() => openEdit(p)} className="p-2 text-[#0B1B3D] hover:text-[#C5A059]" data-testid={`edit-${p.id}`}><Edit2 className="w-4 h-4" /></button>
-                      <button onClick={() => del(p.id)} className="p-2 text-[#0B1B3D] hover:text-red-500" data-testid={`delete-${p.id}`}><Trash2 className="w-4 h-4" /></button>
+                      <button onClick={() => openEdit(p)} className="p-2 text-[#701A3D] hover:text-[#C5A059]" data-testid={`edit-${p.id}`}><Edit2 className="w-4 h-4" /></button>
+                      <button onClick={() => del(p.id)} className="p-2 text-[#701A3D] hover:text-red-500" data-testid={`delete-${p.id}`}><Trash2 className="w-4 h-4" /></button>
                     </td>
                   </tr>
                 ))}
@@ -150,17 +150,17 @@ export default function AdminDashboardPage() {
 
       {tab === "quotes" && (
         <div className="space-y-4" data-testid="quotes-list">
-          {quotes.length === 0 && <p className="text-[#64748B] py-8 text-center">Sin cotizaciones todavía.</p>}
+          {quotes.length === 0 && <p className="text-[#374151] py-8 text-center">Sin cotizaciones todavía.</p>}
           {quotes.map((q) => (
-            <div key={q.id} className="border border-[#0B1B3D]/10 p-5 bg-white">
+            <div key={q.id} className="border border-[#701A3D]/10 p-5 bg-white">
               <div className="flex justify-between mb-2">
-                <div className="font-serif text-lg text-[#0B1B3D]">{q.name}</div>
-                <div className="text-xs text-[#64748B]">{new Date(q.created_at).toLocaleString("es-MX")}</div>
+                <div className="font-serif text-lg text-[#701A3D]">{q.name}</div>
+                <div className="text-xs text-[#374151]">{new Date(q.created_at).toLocaleString("es-MX")}</div>
               </div>
-              <div className="text-sm text-[#64748B]">{q.phone} · {q.email}</div>
+              <div className="text-sm text-[#374151]">{q.phone} · {q.email}</div>
               <p className="text-sm mt-2">{q.message}</p>
               {q.items?.length > 0 && (
-                <ul className="mt-2 text-xs text-[#64748B]">
+                <ul className="mt-2 text-xs text-[#374151]">
                   {q.items.map((i, idx) => <li key={idx}>• {i.product_id} x{i.quantity}</li>)}
                 </ul>
               )}
@@ -170,9 +170,9 @@ export default function AdminDashboardPage() {
       )}
 
       {tab === "appointments" && (
-        <div className="overflow-x-auto border border-[#0B1B3D]/10" data-testid="appointments-table">
+        <div className="overflow-x-auto border border-[#701A3D]/10" data-testid="appointments-table">
           <table className="w-full text-sm">
-            <thead className="bg-[#0B1B3D] text-white">
+            <thead className="bg-[#701A3D] text-white">
               <tr>
                 <th className="text-left p-3">Fecha · Hora</th>
                 <th className="text-left p-3">Cliente</th>
@@ -183,15 +183,15 @@ export default function AdminDashboardPage() {
               </tr>
             </thead>
             <tbody>
-              {appointments.length === 0 && <tr><td colSpan={6} className="p-8 text-center text-[#64748B]">Sin citas registradas.</td></tr>}
+              {appointments.length === 0 && <tr><td colSpan={6} className="p-8 text-center text-[#374151]">Sin citas registradas.</td></tr>}
               {appointments.map((a) => (
-                <tr key={a.id} className="border-t border-[#0B1B3D]/10" data-testid={`appt-row-${a.id}`}>
-                  <td className="p-3 font-medium text-[#0B1B3D]">{a.date} · {a.time}</td>
+                <tr key={a.id} className="border-t border-[#701A3D]/10" data-testid={`appt-row-${a.id}`}>
+                  <td className="p-3 font-medium text-[#701A3D]">{a.date} · {a.time}</td>
                   <td className="p-3">{a.customer_name}</td>
                   <td className="p-3">{a.service}</td>
                   <td className="p-3 text-xs">
                     <div>{a.customer_phone}</div>
-                    {a.customer_email && <div className="text-[#64748B]">{a.customer_email}</div>}
+                    {a.customer_email && <div className="text-[#374151]">{a.customer_email}</div>}
                   </td>
                   <td className="p-3">
                     <select
@@ -219,7 +219,7 @@ export default function AdminDashboardPage() {
                         try { await api.delete(`/admin/appointments/${a.id}`); toast.success("Eliminada"); load(); }
                         catch { toast.error("Error"); }
                       }}
-                      className="p-2 text-[#0B1B3D] hover:text-red-500"
+                      className="p-2 text-[#701A3D] hover:text-red-500"
                       data-testid={`appt-delete-${a.id}`}
                     >
                       <Trash2 className="w-4 h-4" />
@@ -234,14 +234,14 @@ export default function AdminDashboardPage() {
 
 
       {tab === "transactions" && (
-        <div className="overflow-x-auto border border-[#0B1B3D]/10" data-testid="transactions-table">
+        <div className="overflow-x-auto border border-[#701A3D]/10" data-testid="transactions-table">
           <table className="w-full text-sm">
-            <thead className="bg-[#0B1B3D] text-white">
+            <thead className="bg-[#701A3D] text-white">
               <tr><th className="text-left p-3">Fecha</th><th className="text-left p-3">Sesión</th><th className="text-left p-3">Cliente</th><th className="text-right p-3">Monto</th><th className="text-left p-3">Estado</th></tr>
             </thead>
             <tbody>
               {transactions.map((t) => (
-                <tr key={t.id} className="border-t border-[#0B1B3D]/10">
+                <tr key={t.id} className="border-t border-[#701A3D]/10">
                   <td className="p-3">{new Date(t.created_at).toLocaleString("es-MX")}</td>
                   <td className="p-3 text-xs font-mono">{t.session_id?.slice(0, 24)}…</td>
                   <td className="p-3">{t.customer_name || "—"}</td>
@@ -249,52 +249,52 @@ export default function AdminDashboardPage() {
                   <td className="p-3"><span className={`px-2 py-1 text-xs ${t.payment_status === "paid" ? "bg-green-100 text-green-700" : "bg-amber-100 text-amber-700"}`}>{t.payment_status}</span></td>
                 </tr>
               ))}
-              {transactions.length === 0 && <tr><td colSpan={5} className="p-8 text-center text-[#64748B]">Sin transacciones todavía.</td></tr>}
+              {transactions.length === 0 && <tr><td colSpan={5} className="p-8 text-center text-[#374151]">Sin transacciones todavía.</td></tr>}
             </tbody>
           </table>
         </div>
       )}
 
       {modal && (
-        <div className="fixed inset-0 bg-[#0B1B3D]/60 z-50 flex items-center justify-center p-4" data-testid="product-modal">
+        <div className="fixed inset-0 bg-[#701A3D]/60 z-50 flex items-center justify-center p-4" data-testid="product-modal">
           <form onSubmit={save} className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto p-8">
             <div className="flex justify-between mb-6">
-              <h3 className="font-serif text-2xl text-[#0B1B3D]">{modal === "new" ? "Nuevo producto" : "Editar producto"}</h3>
+              <h3 className="font-serif text-2xl text-[#701A3D]">{modal === "new" ? "Nuevo producto" : "Editar producto"}</h3>
               <button type="button" onClick={() => setModal(null)} data-testid="modal-close"><X className="w-5 h-5" /></button>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <label className="col-span-2"><span className="eyebrow block mb-1">Nombre</span>
-                <input required className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} data-testid="form-name" />
+                <input required className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} data-testid="form-name" />
               </label>
               <label><span className="eyebrow block mb-1">Marca</span>
-                <input className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })} />
+                <input className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })} />
               </label>
               <label><span className="eyebrow block mb-1">Precio MXN</span>
-                <input required type="number" step="0.01" className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} data-testid="form-price" />
+                <input required type="number" step="0.01" className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} data-testid="form-price" />
               </label>
               <label className="col-span-2"><span className="eyebrow block mb-1">URL Imagen</span>
-                <input required className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} data-testid="form-image" />
+                <input required className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} data-testid="form-image" />
               </label>
               <label className="col-span-2"><span className="eyebrow block mb-1">Descripción</span>
-                <textarea rows={3} className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
+                <textarea rows={3} className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
               </label>
               <label><span className="eyebrow block mb-1">Estilo</span>
-                <select className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.style} onChange={(e) => setForm({ ...form, style: e.target.value })} data-testid="form-style">
+                <select className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.style} onChange={(e) => setForm({ ...form, style: e.target.value })} data-testid="form-style">
                   {STYLES.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
               </label>
               <label><span className="eyebrow block mb-1">Tipo</span>
-                <select className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} data-testid="form-type">
+                <select className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} data-testid="form-type">
                   {TYPES.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
               </label>
               <label><span className="eyebrow block mb-1">Género</span>
-                <select className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.gender} onChange={(e) => setForm({ ...form, gender: e.target.value })}>
+                <select className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.gender} onChange={(e) => setForm({ ...form, gender: e.target.value })}>
                   {GENDERS.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
               </label>
               <label><span className="eyebrow block mb-1">Stock</span>
-                <input type="number" className="w-full border border-[#0B1B3D]/20 px-3 py-2" value={form.stock} onChange={(e) => setForm({ ...form, stock: e.target.value })} />
+                <input type="number" className="w-full border border-[#701A3D]/20 px-3 py-2" value={form.stock} onChange={(e) => setForm({ ...form, stock: e.target.value })} />
               </label>
               <label className="col-span-2 flex items-center gap-2">
                 <input type="checkbox" checked={form.featured} onChange={(e) => setForm({ ...form, featured: e.target.checked })} data-testid="form-featured" />

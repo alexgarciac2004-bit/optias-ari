@@ -39,17 +39,17 @@ export default function Navbar() {
     <header className="glass sticky top-0 z-40" data-testid="navbar">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-5 flex items-center justify-between relative">
         <Link to="/" className="flex items-center gap-3" data-testid="logo-link">
-          <div className="w-10 h-10 rounded-full border border-[#0B1B3D] flex items-center justify-center">
-            <span className="font-serif text-xl text-[#0B1B3D]">A</span>
+          <div className="w-10 h-10 rounded-full border border-[#701A3D] flex items-center justify-center">
+            <span className="font-serif text-xl text-[#701A3D]">A</span>
           </div>
           <div className="leading-tight">
-            <div className="font-serif text-xl text-[#0B1B3D]">Óptica Ari</div>
-            <div className="eyebrow text-[10px]">Visión · Estilo</div>
+            <div className="font-serif text-xl text-[#701A3D]">Óptica Ari</div>
+            <div className="eyebrow text-[10px]">Claridad que trasciende</div>
           </div>
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
-          <NavLink to="/" end className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#0B1B3D] hover:text-[#C5A059]"}`} data-testid="nav-inicio">
+          <NavLink to="/" end className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#701A3D] hover:text-[#C5A059]"}`} data-testid="nav-inicio">
             Inicio
           </NavLink>
 
@@ -59,7 +59,7 @@ export default function Navbar() {
             className="relative"
           >
             <button
-              className={`text-sm font-medium tracking-wide transition-colors flex items-center gap-1 ${megaOpen ? "text-[#C5A059]" : "text-[#0B1B3D] hover:text-[#C5A059]"}`}
+              className={`text-sm font-medium tracking-wide transition-colors flex items-center gap-1 ${megaOpen ? "text-[#C5A059]" : "text-[#701A3D] hover:text-[#C5A059]"}`}
               data-testid="nav-catalogo-trigger"
               onClick={() => setMegaOpen(true)}
               aria-expanded={megaOpen}
@@ -68,27 +68,27 @@ export default function Navbar() {
             </button>
           </div>
 
-          <NavLink to="/nosotros" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#0B1B3D] hover:text-[#C5A059]"}`} data-testid="nav-nosotros">
+          <NavLink to="/nosotros" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#701A3D] hover:text-[#C5A059]"}`} data-testid="nav-nosotros">
             Nosotros
           </NavLink>
-          <NavLink to="/citas" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#0B1B3D] hover:text-[#C5A059]"}`} data-testid="nav-citas">
+          <NavLink to="/citas" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#701A3D] hover:text-[#C5A059]"}`} data-testid="nav-citas">
             Agendar cita
           </NavLink>
-          <NavLink to="/contacto" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#0B1B3D] hover:text-[#C5A059]"}`} data-testid="nav-contacto">
+          <NavLink to="/contacto" className={({ isActive }) => `text-sm font-medium tracking-wide transition-colors ${isActive ? "text-[#C5A059]" : "text-[#701A3D] hover:text-[#C5A059]"}`} data-testid="nav-contacto">
             Contacto
           </NavLink>
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link to="/catalogo" className="hidden md:flex p-2 text-[#0B1B3D] hover:text-[#C5A059] transition-colors" data-testid="nav-search" aria-label="Buscar">
+          <Link to="/catalogo" className="hidden md:flex p-2 text-[#701A3D] hover:text-[#C5A059] transition-colors" data-testid="nav-search" aria-label="Buscar">
             <Search className="w-5 h-5" strokeWidth={1.5} />
           </Link>
-          <a href={waLink("Hola Óptica Ari")} target="_blank" rel="noreferrer" className="hidden md:flex p-2 text-[#0B1B3D] hover:text-[#C5A059] transition-colors" data-testid="nav-call" aria-label="WhatsApp">
+          <a href={waLink("Hola Óptica Ari")} target="_blank" rel="noreferrer" className="hidden md:flex p-2 text-[#701A3D] hover:text-[#C5A059] transition-colors" data-testid="nav-call" aria-label="WhatsApp">
             <Phone className="w-5 h-5" strokeWidth={1.5} />
           </a>
           <button
             onClick={() => setOpen(true)}
-            className="relative p-2 text-[#0B1B3D] hover:text-[#C5A059] transition-colors"
+            className="relative p-2 text-[#701A3D] hover:text-[#C5A059] transition-colors"
             data-testid="cart-button"
             aria-label="Carrito"
           >
@@ -100,7 +100,7 @@ export default function Navbar() {
             )}
           </button>
           <button
-            className="md:hidden p-2 text-[#0B1B3D]"
+            className="md:hidden p-2 text-[#701A3D]"
             onClick={() => setMobileOpen(!mobileOpen)}
             data-testid="mobile-menu-toggle"
             aria-label="Menú"
@@ -113,7 +113,7 @@ export default function Navbar() {
 
       {megaOpen && (
         <>
-          <div className="fixed inset-0 bg-[#0B1B3D]/30 z-30" onClick={() => setMegaOpen(false)} data-testid="mega-backdrop" />
+          <div className="fixed inset-0 bg-[#701A3D]/30 z-30" onClick={() => setMegaOpen(false)} data-testid="mega-backdrop" />
           <div onMouseEnter={openMega} onMouseLeave={scheduleCloseMega} className="absolute left-0 right-0 top-full z-40">
             <MegaMenu onClose={() => setMegaOpen(false)} />
           </div>
@@ -121,13 +121,13 @@ export default function Navbar() {
       )}
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-[#0B1B3D]/10 bg-white max-h-[calc(100vh-80px)] overflow-y-auto" data-testid="mobile-menu">
+        <div className="md:hidden border-t border-[#701A3D]/10 bg-white max-h-[calc(100vh-80px)] overflow-y-auto" data-testid="mobile-menu">
           <div className="px-6 py-5 flex flex-col">
-            <Link to="/" onClick={() => setMobileOpen(false)} className="py-3 text-[#0B1B3D] font-medium" data-testid="mobile-nav-inicio">Inicio</Link>
+            <Link to="/" onClick={() => setMobileOpen(false)} className="py-3 text-[#701A3D] font-medium" data-testid="mobile-nav-inicio">Inicio</Link>
 
             <button
               onClick={() => setMobileSection(mobileSection === "catalog" ? null : "catalog")}
-              className="py-3 text-[#0B1B3D] font-medium flex items-center justify-between"
+              className="py-3 text-[#701A3D] font-medium flex items-center justify-between"
               data-testid="mobile-nav-catalogo"
             >
               Catálogo <ChevronDown className={`w-4 h-4 transition-transform ${mobileSection === "catalog" ? "rotate-180" : ""}`} />
@@ -138,7 +138,7 @@ export default function Navbar() {
                   <div className="eyebrow mb-2">Por estilo</div>
                   <div className="flex flex-wrap gap-2">
                     {STYLES.map((s) => (
-                      <Link key={s} to={`/catalogo?style=${encodeURIComponent(s)}`} onClick={() => setMobileOpen(false)} className="text-xs px-3 py-1 border border-[#0B1B3D]/20 text-[#0B1B3D]" data-testid={`mobile-style-${s}`}>{s}</Link>
+                      <Link key={s} to={`/catalogo?style=${encodeURIComponent(s)}`} onClick={() => setMobileOpen(false)} className="text-xs px-3 py-1 border border-[#701A3D]/20 text-[#701A3D]" data-testid={`mobile-style-${s}`}>{s}</Link>
                     ))}
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export default function Navbar() {
                   <div className="eyebrow mb-2">Por tipo</div>
                   <div className="flex flex-wrap gap-2">
                     {TYPES.map((t) => (
-                      <Link key={t} to={`/catalogo?type=${encodeURIComponent(t)}`} onClick={() => setMobileOpen(false)} className="text-xs px-3 py-1 border border-[#0B1B3D]/20 text-[#0B1B3D]" data-testid={`mobile-type-${t}`}>{t}</Link>
+                      <Link key={t} to={`/catalogo?type=${encodeURIComponent(t)}`} onClick={() => setMobileOpen(false)} className="text-xs px-3 py-1 border border-[#701A3D]/20 text-[#701A3D]" data-testid={`mobile-type-${t}`}>{t}</Link>
                     ))}
                   </div>
                 </div>
@@ -154,11 +154,11 @@ export default function Navbar() {
               </div>
             )}
 
-            <Link to="/nosotros" onClick={() => setMobileOpen(false)} className="py-3 text-[#0B1B3D] font-medium" data-testid="mobile-nav-nosotros">Nosotros</Link>
-            <Link to="/citas" onClick={() => setMobileOpen(false)} className="py-3 text-[#0B1B3D] font-medium" data-testid="mobile-nav-citas">Agendar cita</Link>
-            <Link to="/contacto" onClick={() => setMobileOpen(false)} className="py-3 text-[#0B1B3D] font-medium" data-testid="mobile-nav-contacto">Contacto</Link>
+            <Link to="/nosotros" onClick={() => setMobileOpen(false)} className="py-3 text-[#701A3D] font-medium" data-testid="mobile-nav-nosotros">Nosotros</Link>
+            <Link to="/citas" onClick={() => setMobileOpen(false)} className="py-3 text-[#701A3D] font-medium" data-testid="mobile-nav-citas">Agendar cita</Link>
+            <Link to="/contacto" onClick={() => setMobileOpen(false)} className="py-3 text-[#701A3D] font-medium" data-testid="mobile-nav-contacto">Contacto</Link>
 
-            <div className="mt-4 pt-4 border-t border-[#0B1B3D]/10 space-y-3">
+            <div className="mt-4 pt-4 border-t border-[#701A3D]/10 space-y-3">
               <a href={waLink("Hola Óptica Ari")} target="_blank" rel="noreferrer" className="btn-gold w-full block text-center text-sm" data-testid="mobile-whatsapp">
                 WhatsApp · {WHATSAPP_NUMBER}
               </a>

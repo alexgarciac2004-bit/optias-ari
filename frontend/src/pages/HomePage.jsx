@@ -4,8 +4,8 @@ import { ArrowRight, Eye, ShieldCheck, Sparkles } from "lucide-react";
 import { api } from "../lib/api";
 import ProductCard from "../components/ProductCard";
 
-const HERO = "https://images.unsplash.com/photo-1764778055595-b641b067ab40?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHwxfHxvcHRpY2FsJTIwc3RvcmUlMjBsdXh1cnl8ZW58MHx8fHwxNzc2ODk0ODIwfDA&ixlib=rb-4.1.0&q=85";
-const PORTRAIT = "https://images.unsplash.com/photo-1590305173565-f789a8dd6be7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjB3ZWFyaW5nJTIwZ2xhc3Nlc3xlbnwwfHx8fDE3NzY4OTQ4MTZ8MA&ixlib=rb-4.1.0&q=85";
+const HERO = "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1800&q=80";
+const PORTRAIT = "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=1200&q=80";
 
 const STYLES = ["Clásico", "Moderno", "Deportivo", "Vintage", "Infantil", "Oversize"];
 
@@ -20,26 +20,26 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <img src={HERO} alt="Óptica Ari" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1B3D]/85 via-[#0B1B3D]/70 to-[#0B1B3D]/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#701A3D]/85 via-[#701A3D]/70 to-[#E6007E]/40" />
         <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-24 grid md:grid-cols-12 gap-8 items-end w-full">
           <div className="md:col-span-8 reveal">
-            <div className="eyebrow text-[#C5A059] mb-6">Óptica profesional · Mérida</div>
+            <div className="eyebrow text-[#C5A059] mb-6">Óptica profesional · Kanasín, Yucatán</div>
             <h1 className="font-serif text-white text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
-              Mira el mundo<br />
-              <span className="italic text-[#C5A059]">con claridad</span>
+              Claridad<br />
+              <span className="italic text-[#C5A059]">que trasciende</span>
             </h1>
             <p className="text-white/80 text-lg mt-8 max-w-xl leading-relaxed">
-              En Óptica Ari combinamos precisión óptica con diseño auténtico. Descubre marcos seleccionados a mano para cada estilo de vida.
+              Diagnóstico profesional, lentes graduados, lentes de contacto y salud visual integral. Atención personalizada para toda tu familia.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
-              <Link to="/catalogo" className="btn-gold inline-flex items-center gap-2" data-testid="hero-catalog-btn">
+              <Link to="/catalogo" className="btn-pink inline-flex items-center gap-2" data-testid="hero-catalog-btn">
                 Ver catálogo <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/529995108699?text=Hola%20%C3%93ptica%20Ari%2C%20me%20gustar%C3%ADa%20una%20cotizaci%C3%B3n."
+                href="https://wa.me/529999022780?text=Hola%20%C3%93ptica%20Ari%2C%20me%20gustar%C3%ADa%20una%20cotizaci%C3%B3n."
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block px-8 py-[14px] border border-white text-white hover:bg-white hover:text-[#0B1B3D] transition-colors font-medium tracking-wide"
+                className="inline-block px-8 py-[14px] border border-white text-white hover:bg-white hover:text-[#701A3D] transition-colors font-medium tracking-wide"
                 data-testid="hero-whatsapp-btn"
               >
                 Cotizar por WhatsApp
@@ -61,9 +61,9 @@ export default function HomePage() {
         <div className="grid md:grid-cols-12 gap-10 mb-12">
           <div className="md:col-span-6">
             <div className="eyebrow mb-4">Encuentra tu estilo</div>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#0B1B3D] gold-rule">Selecciona por personalidad</h2>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#701A3D] gold-rule">Selecciona por personalidad</h2>
           </div>
-          <p className="md:col-span-6 text-[#64748B] text-base md:self-end">
+          <p className="md:col-span-6 text-[#374151] text-base md:self-end">
             Desde lo clásico atemporal hasta lo contemporáneo audaz. Filtra por estilo y encuentra el marco que cuenta tu historia.
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function HomePage() {
             <Link
               key={s}
               to={`/catalogo?style=${encodeURIComponent(s)}`}
-              className="border border-[#0B1B3D]/15 hover:border-[#C5A059] hover:bg-[#0B1B3D] hover:text-white px-6 py-8 text-center transition-all group"
+              className="border border-[#701A3D]/15 hover:border-[#C5A059] hover:bg-[#701A3D] hover:text-white px-6 py-8 text-center transition-all group"
               data-testid={`style-chip-${s}`}
             >
               <div className="font-serif text-xl group-hover:text-[#C5A059] transition-colors">{s}</div>
@@ -86,9 +86,9 @@ export default function HomePage() {
         <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
             <div className="eyebrow mb-4">Destacados</div>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#0B1B3D] gold-rule">Piezas seleccionadas</h2>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#701A3D] gold-rule">Piezas seleccionadas</h2>
           </div>
-          <Link to="/catalogo" className="text-sm uppercase tracking-widest text-[#0B1B3D] hover:text-[#C5A059] border-b border-[#C5A059] pb-1" data-testid="view-all-products">
+          <Link to="/catalogo" className="text-sm uppercase tracking-widest text-[#701A3D] hover:text-[#C5A059] border-b border-[#C5A059] pb-1" data-testid="view-all-products">
             Ver todo el catálogo
           </Link>
         </div>
@@ -98,7 +98,7 @@ export default function HomePage() {
       </section>
 
       {/* VALUES */}
-      <section className="bg-[#0B1B3D] text-white py-20 md:py-28">
+      <section className="bg-[#701A3D] text-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid md:grid-cols-3 gap-10">
             {[
@@ -121,10 +121,10 @@ export default function HomePage() {
         <img src={PORTRAIT} alt="Atención personalizada" className="w-full h-[520px] object-cover" />
         <div>
           <div className="eyebrow mb-4">Atención personalizada</div>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#0B1B3D] gold-rule leading-tight">
+          <h2 className="font-serif text-4xl md:text-5xl text-[#701A3D] gold-rule leading-tight">
             Cada mirada merece<br />una pieza única.
           </h2>
-          <p className="text-[#64748B] mt-6 leading-relaxed">
+          <p className="text-[#374151] mt-6 leading-relaxed">
             Agenda tu examen visual o pregunta por nuestro catálogo completo. Nuestro equipo te acompaña desde la primera visita hasta la entrega final.
           </p>
           <div className="flex flex-wrap gap-4 mt-8">

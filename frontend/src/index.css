@@ -9,8 +9,8 @@ body {
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #FAFAFA;
-    color: #0B1B3D;
+    background: #FDF2F8;
+    color: #374151;
 }
 
 .font-serif { font-family: 'Playfair Display', Georgia, serif; }
@@ -18,25 +18,25 @@ body {
 
 @layer base {
     :root {
-        --background: 0 0% 98%;
-        --foreground: 222 70% 14%;
+        --background: 327 73% 97%;
+        --foreground: 217 19% 27%;
         --card: 0 0% 100%;
-        --card-foreground: 222 70% 14%;
+        --card-foreground: 217 19% 27%;
         --popover: 0 0% 100%;
-        --popover-foreground: 222 70% 14%;
-        --primary: 222 70% 14%;
+        --popover-foreground: 217 19% 27%;
+        --primary: 332 75% 27%;
         --primary-foreground: 0 0% 100%;
-        --secondary: 210 40% 96%;
-        --secondary-foreground: 222 70% 14%;
-        --muted: 210 40% 96%;
-        --muted-foreground: 215 16% 47%;
-        --accent: 39 49% 56%;
+        --secondary: 327 78% 95%;
+        --secondary-foreground: 332 75% 27%;
+        --muted: 327 78% 95%;
+        --muted-foreground: 217 19% 35%;
+        --accent: 329 100% 45%;
         --accent-foreground: 0 0% 100%;
         --destructive: 0 84% 60%;
         --destructive-foreground: 0 0% 100%;
-        --border: 222 30% 90%;
-        --input: 222 30% 90%;
-        --ring: 39 49% 56%;
+        --border: 332 50% 88%;
+        --input: 332 50% 88%;
+        --ring: 329 100% 45%;
         --radius: 0;
     }
 }
@@ -58,10 +58,10 @@ body {
 }
 
 /* Selection */
-::selection { background: #0B1B3D; color: #C5A059; }
+::selection { background: #701A3D; color: #F9A8D4; }
 
 /* Smooth focus */
-*:focus-visible { outline: 2px solid #C5A059; outline-offset: 2px; }
+*:focus-visible { outline: 2px solid #E6007E; outline-offset: 2px; }
 
 /* WhatsApp pulse */
 @keyframes wa-pulse {
@@ -79,10 +79,10 @@ body {
 
 /* Navbar glass */
 .glass {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(11, 27, 61, 0.08);
+    border-bottom: 1px solid rgba(112, 26, 61, 0.12);
 }
 
 /* Product card hover */
@@ -91,8 +91,8 @@ body {
 }
 .prod-card:hover {
     transform: translateY(-4px);
-    border-color: #C5A059;
-    box-shadow: 0 12px 36px rgba(11, 27, 61, 0.08);
+    border-color: #E6007E;
+    box-shadow: 0 12px 36px rgba(230, 0, 126, 0.12);
 }
 
 /* Gold underline for headings */
@@ -106,6 +106,18 @@ body {
 }
 .gold-rule.center::after { margin-left: auto; margin-right: auto; }
 
+/* Primary CTA — Vibrant Pink */
+.btn-pink {
+    background: #E6007E;
+    color: #fff;
+    padding: 14px 32px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background 0.25s, transform 0.2s;
+}
+.btn-pink:hover { background: #C0006A; transform: translateY(-1px); }
+
+/* Gold (accent / secondary on light) */
 .btn-gold {
     background: #C5A059;
     color: #fff;
@@ -116,23 +128,35 @@ body {
 }
 .btn-gold:hover { background: #B38F48; }
 
-.btn-navy {
-    background: #0B1B3D;
+/* Wine (deep / dark surfaces) */
+.btn-navy, .btn-wine {
+    background: #701A3D;
     color: #fff;
     padding: 14px 32px;
     font-weight: 500;
     letter-spacing: 0.04em;
     transition: background 0.25s;
 }
-.btn-navy:hover { background: #142a5c; }
+.btn-navy:hover, .btn-wine:hover { background: #8B2750; }
 
-.btn-outline-navy {
+/* Outline */
+.btn-outline-navy, .btn-outline-wine {
     background: transparent;
-    color: #0B1B3D;
+    color: #701A3D;
     padding: 14px 32px;
-    border: 1px solid #0B1B3D;
+    border: 1px solid #701A3D;
     transition: all 0.25s;
     font-weight: 500;
     letter-spacing: 0.04em;
 }
-.btn-outline-navy:hover { background: #0B1B3D; color: #fff; }
+.btn-outline-navy:hover, .btn-outline-wine:hover { background: #701A3D; color: #fff; }
+
+/* Butterfly accent (subtle decorative) */
+.butterfly-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 20%, rgba(249, 168, 212, 0.25), transparent 40%),
+                      radial-gradient(circle at 80% 80%, rgba(230, 0, 126, 0.12), transparent 40%);
+    pointer-events: none;
+}

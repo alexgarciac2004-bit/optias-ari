@@ -5,12 +5,12 @@ import { waLink, WHATSAPP_NUMBER } from "../lib/api";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B1B3D] text-white/90 mt-24" data-testid="footer">
+    <footer className="bg-[#701A3D] text-white/90 mt-24" data-testid="footer">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16 grid md:grid-cols-4 gap-10">
         <div>
           <div className="font-serif text-2xl text-white mb-2">Óptica Ari</div>
           <p className="text-sm text-white/60 leading-relaxed">
-            Visión profesional con estilo único. Marcos seleccionados, atención personalizada.
+            Visión profesional con estilo único. Claridad que trasciende — lentes y atención personalizada en Kanasín, Yucatán.
           </p>
         </div>
         <div>
@@ -25,9 +25,9 @@ export default function Footer() {
         <div>
           <div className="eyebrow text-[#C5A059] mb-4">Contacto</div>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#C5A059]" /> {WHATSAPP_NUMBER}</li>
+            <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#C5A059]" /> 999 902 2780</li>
             <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#C5A059]" /> contacto@opticaari.mx</li>
-            <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-[#C5A059]" /> Mérida, Yucatán</li>
+            <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-[#C5A059]" /> Kanasín, Yucatán</li>
           </ul>
         </div>
         <div>

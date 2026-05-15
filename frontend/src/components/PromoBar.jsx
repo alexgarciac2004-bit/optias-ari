@@ -22,7 +22,7 @@ export default function PromoBar() {
   const next = () => setI((v) => (v + 1) % MESSAGES.length);
 
   return (
-    <div className="bg-[#C5A059] text-white text-xs" data-testid="promo-bar">
+    <div className="bg-[#E6007E] text-white text-xs" data-testid="promo-bar">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-2.5 flex items-center justify-between gap-4">
         <button onClick={prev} className="p-1 hover:bg-white/10 transition-colors hidden sm:flex" aria-label="Anterior" data-testid="promo-prev">
           <ChevronLeft className="w-3.5 h-3.5" strokeWidth={2} />

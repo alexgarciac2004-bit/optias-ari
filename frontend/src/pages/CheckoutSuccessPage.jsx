@@ -42,16 +42,16 @@ export default function CheckoutSuccessPage() {
       {status === "checking" && (
         <>
           <Loader2 className="w-14 h-14 text-[#C5A059] animate-spin mx-auto mb-6" />
-          <h1 className="font-serif text-4xl text-[#0B1B3D]">Procesando tu pago…</h1>
-          <p className="text-[#64748B] mt-4">No cierres esta ventana.</p>
+          <h1 className="font-serif text-4xl text-[#701A3D]">Procesando tu pago…</h1>
+          <p className="text-[#374151] mt-4">No cierres esta ventana.</p>
         </>
       )}
       {status === "paid" && (
         <>
           <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-6" strokeWidth={1.2} />
           <div className="eyebrow mb-2">Compra confirmada</div>
-          <h1 className="font-serif text-5xl text-[#0B1B3D]">¡Gracias por tu compra!</h1>
-          <p className="text-[#64748B] mt-6 max-w-xl mx-auto">
+          <h1 className="font-serif text-5xl text-[#701A3D]">¡Gracias por tu compra!</h1>
+          <p className="text-[#374151] mt-6 max-w-xl mx-auto">
             Hemos recibido tu pago{info?.amount_total ? ` por $${(info.amount_total / 100).toLocaleString("es-MX")} ${info?.currency?.toUpperCase() || "MXN"}` : ""}. Te contactaremos por WhatsApp para coordinar la entrega.
           </p>
           <Link to="/catalogo" className="btn-navy mt-10 inline-block" data-testid="success-continue">Seguir comprando</Link>
@@ -60,8 +60,8 @@ export default function CheckoutSuccessPage() {
       {(status === "failed" || status === "expired") && (
         <>
           <XCircle className="w-16 h-16 text-red-500 mx-auto mb-6" strokeWidth={1.2} />
-          <h1 className="font-serif text-4xl text-[#0B1B3D]">Hubo un problema</h1>
-          <p className="text-[#64748B] mt-4">No pudimos confirmar tu pago. Intenta de nuevo o contáctanos por WhatsApp.</p>
+          <h1 className="font-serif text-4xl text-[#701A3D]">Hubo un problema</h1>
+          <p className="text-[#374151] mt-4">No pudimos confirmar tu pago. Intenta de nuevo o contáctanos por WhatsApp.</p>
           <Link to="/catalogo" className="btn-outline-navy mt-8 inline-block">Volver al catálogo</Link>
         </>
       )}

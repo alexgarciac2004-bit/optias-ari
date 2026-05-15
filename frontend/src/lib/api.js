@@ -11,6 +11,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-export const WHATSAPP_NUMBER = "9995108699";
+export const WHATSAPP_NUMBER = "9999022780";
 export const waLink = (text = "") =>
   `https://wa.me/52${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;

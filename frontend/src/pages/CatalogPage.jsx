@@ -43,7 +43,7 @@ export default function CatalogPage() {
     <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-24" data-testid="catalog-page">
       <div className="mb-12">
         <div className="eyebrow mb-4">Catálogo completo</div>
-        <h1 className="font-serif text-5xl md:text-6xl text-[#0B1B3D] gold-rule">Todos los lentes</h1>
+        <h1 className="font-serif text-5xl md:text-6xl text-[#701A3D] gold-rule">Todos los lentes</h1>
       </div>
 
       <div className="mb-10 space-y-6">
@@ -54,7 +54,7 @@ export default function CatalogPage() {
               <button
                 key={s}
                 onClick={() => setStyle(s)}
-                className={`px-5 py-2 text-sm border transition-colors ${style === s ? "bg-[#0B1B3D] text-white border-[#0B1B3D]" : "border-[#0B1B3D]/20 text-[#0B1B3D] hover:border-[#C5A059]"}`}
+                className={`px-5 py-2 text-sm border transition-colors ${style === s ? "bg-[#701A3D] text-white border-[#701A3D]" : "border-[#701A3D]/20 text-[#701A3D] hover:border-[#C5A059]"}`}
                 data-testid={`filter-style-${s}`}
               >
                 {s}
@@ -70,7 +70,7 @@ export default function CatalogPage() {
                 <button
                   key={t}
                   onClick={() => setType(t)}
-                  className={`px-5 py-2 text-sm border transition-colors ${type === t ? "bg-[#C5A059] text-white border-[#C5A059]" : "border-[#0B1B3D]/20 text-[#0B1B3D] hover:border-[#C5A059]"}`}
+                  className={`px-5 py-2 text-sm border transition-colors ${type === t ? "bg-[#C5A059] text-white border-[#C5A059]" : "border-[#701A3D]/20 text-[#701A3D] hover:border-[#C5A059]"}`}
                   data-testid={`filter-type-${t}`}
                 >
                   {t}
@@ -83,7 +83,7 @@ export default function CatalogPage() {
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="px-4 py-2 border border-[#0B1B3D]/20 text-[#0B1B3D] bg-white text-sm"
+              className="px-4 py-2 border border-[#701A3D]/20 text-[#701A3D] bg-white text-sm"
               data-testid="sort-select"
             >
               <option value="featured">Destacados</option>
@@ -94,16 +94,16 @@ export default function CatalogPage() {
         </div>
       </div>
 
-      <div className="text-sm text-[#64748B] mb-6" data-testid="results-count">{filtered.length} modelos</div>
+      <div className="text-sm text-[#374151] mb-6" data-testid="results-count">{filtered.length} modelos</div>
 
       {loading ? (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="h-[420px] bg-[#F1F5F9] animate-pulse" />
+            <div key={i} className="h-[420px] bg-[#FCE7F3] animate-pulse" />
           ))}
         </div>
       ) : filtered.length === 0 ? (
-        <div className="py-20 text-center text-[#64748B]" data-testid="empty-results">Sin resultados para estos filtros.</div>
+        <div className="py-20 text-center text-[#374151]" data-testid="empty-results">Sin resultados para estos filtros.</div>
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {filtered.map((p) => <ProductCard key={p.id} product={p} />)}

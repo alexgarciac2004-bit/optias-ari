@@ -10,7 +10,7 @@ const FEATURED_IMG = "https://images.unsplash.com/photo-1473496169904-658ba7c44d
 export default function MegaMenu({ onClose }) {
   return (
     <div
-      className="bg-white border-t border-[#0B1B3D]/10 shadow-[0_24px_60px_rgba(11,27,61,0.12)]"
+      className="bg-white border-t border-[#701A3D]/10 shadow-[0_24px_60px_rgba(11,27,61,0.12)]"
       data-testid="mega-menu"
       onMouseLeave={onClose}
     >
@@ -23,7 +23,7 @@ export default function MegaMenu({ onClose }) {
                 <Link
                   to={`/catalogo?style=${encodeURIComponent(s)}`}
                   onClick={onClose}
-                  className="text-sm text-[#0B1B3D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group"
+                  className="text-sm text-[#701A3D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group"
                   data-testid={`mega-style-${s}`}
                 >
                   <span className="w-0 h-px bg-[#C5A059] group-hover:w-4 transition-all" />
@@ -42,7 +42,7 @@ export default function MegaMenu({ onClose }) {
                 <Link
                   to={`/catalogo?type=${encodeURIComponent(t)}`}
                   onClick={onClose}
-                  className="text-sm text-[#0B1B3D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group"
+                  className="text-sm text-[#701A3D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group"
                   data-testid={`mega-type-${t}`}
                 >
                   <span className="w-0 h-px bg-[#C5A059] group-hover:w-4 transition-all" />
@@ -58,7 +58,7 @@ export default function MegaMenu({ onClose }) {
                 <Link
                   to="/catalogo"
                   onClick={onClose}
-                  className="text-sm text-[#0B1B3D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group"
+                  className="text-sm text-[#701A3D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group"
                   data-testid={`mega-gender-${g}`}
                 >
                   <span className="w-0 h-px bg-[#C5A059] group-hover:w-4 transition-all" />
@@ -84,7 +84,7 @@ export default function MegaMenu({ onClose }) {
                 <Link
                   to={s.to}
                   onClick={onClose}
-                  className="text-sm text-[#0B1B3D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group"
+                  className="text-sm text-[#701A3D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group"
                   data-testid={`mega-service-${s.l}`}
                 >
                   <span className="w-0 h-px bg-[#C5A059] group-hover:w-4 transition-all" />
@@ -97,7 +97,7 @@ export default function MegaMenu({ onClose }) {
 
         <Link to="/catalogo" onClick={onClose} className="col-span-3 group block relative overflow-hidden h-[280px]" data-testid="mega-featured">
           <img src={FEATURED_IMG} alt="Destacados" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B3D]/90 via-[#0B1B3D]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#701A3D]/90 via-[#701A3D]/30 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
             <div className="eyebrow text-[#C5A059] mb-2">Nueva colección</div>
             <div className="font-serif text-2xl leading-tight mb-2">Oversize Couture</div>
