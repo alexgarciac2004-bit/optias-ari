@@ -28,7 +28,7 @@ export default function CartDrawer() {
   const handleQuote = () => {
     const lines = items.map((i) => `• ${i.name} x${i.quantity} — $${(i.price * i.quantity).toLocaleString("es-MX")}`).join("%0A");
     const msg = `Hola Óptica Ari, me interesa cotizar:%0A${lines}%0A%0ATotal aprox: $${total.toLocaleString("es-MX")} MXN`;
-    window.open(`https://wa.me/529999022780?text=${msg}`, "_blank");
+    window.open(`https://web.whatsapp.com/send?phone=529999022780&text=${msg}`, "_blank");
   };
 
   if (!open) return null;

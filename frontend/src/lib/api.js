@@ -12,5 +12,8 @@ api.interceptors.request.use((config) => {
 });
 
 export const WHATSAPP_NUMBER = "9999022780";
+
+// Build a WhatsApp link that AVOIDS api.whatsapp.com (some networks/firewalls block it).
+// Uses web.whatsapp.com which works on desktop, and on mobile redirects to the app.
 export const waLink = (text = "") =>
-  `https://wa.me/52${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  `https://web.whatsapp.com/send?phone=52${WHATSAPP_NUMBER}&text=${encodeURIComponent(text)}`;
