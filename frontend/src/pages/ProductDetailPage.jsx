@@ -64,7 +64,7 @@ export default function ProductDetailPage() {
           <div className="mt-10 pt-8 border-t border-[#701A3D]/10 grid grid-cols-2 gap-4 text-sm text-[#374151]">
             <div><strong className="text-[#701A3D]">Disponibilidad:</strong> {product.stock > 0 ? `${product.stock} en stock` : "Agotado"}</div>
             <div><strong className="text-[#701A3D]">Envío:</strong> Nacional 3-5 días</div>
-            <div><strong className="text-[#701A3D]">Garantía:</strong> 1 año</div>
+            <div><strong className="text-[#701A3D]">Garantía:</strong> 10 meses</div>
             <div><strong className="text-[#701A3D]">Soporte:</strong> WhatsApp directo</div>
           </div>
         </div>

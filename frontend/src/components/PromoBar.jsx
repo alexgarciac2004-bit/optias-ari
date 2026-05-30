@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const MESSAGES = [
-  { text: "Envío GRATIS en compras superiores a $2,000 MXN", cta: "Comprar ahora", to: "/catalogo" },
   { text: "20% de descuento en lentes de sol seleccionados", cta: "Ver oferta", to: "/catalogo?type=Sol" },
-  { text: "Examen visual sin costo al adquirir tus lentes", cta: "Agendar cita", to: "/contacto" },
-  { text: "Garantía de 1 año en todos nuestros marcos", cta: "Conoce más", to: "/nosotros" },
-  { text: "Nueva colección Oversize Couture · Mujer", cta: "Descubrir", to: "/catalogo?style=Oversize" },
+  { text: "Examen visual sin costo al adquirir tus lentes", cta: "Agendar cita", to: "/citas" },
+  { text: "Garantía de 10 meses en todos nuestros marcos", cta: "Conoce más", to: "/nosotros" },
 ];
 
 export default function PromoBar() {

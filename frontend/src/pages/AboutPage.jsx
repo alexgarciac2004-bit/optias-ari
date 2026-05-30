@@ -34,7 +34,7 @@ export default function AboutPage() {
               { t: "Lentes de sol RX", d: "Protección UV400 con graduación personalizada." },
               { t: "Lentes de contacto", d: "Adaptación profesional y seguimiento continuo." },
               { t: "Ajuste y mantenimiento", d: "Limpieza ultrasónica y ajustes de por vida." },
-              { t: "Entrega a domicilio", d: "Envíos a todo México en 3–5 días hábiles." },
+              { t: "Garantía de 10 meses", d: "Todos los marcos cuentan con garantía de fabricación de 10 meses." },
             ].map((s, i) => (
               <div key={i} className="bg-white p-8 border border-[#701A3D]/10 hover:border-[#C5A059] transition-colors" data-testid={`service-${i}`}>
                 <div className="font-serif text-xl text-[#701A3D] mb-3">{s.t}</div>

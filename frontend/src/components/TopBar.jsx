@@ -32,7 +32,7 @@ export default function TopBar() {
             Lun – Vie · 9:30 – 19:30 · Sáb 10:00 – 17:00
           </span>
           <span className="text-[#C5A059] hidden lg:inline">|</span>
-          <span className="hidden lg:inline tracking-wider uppercase text-[10px] text-[#C5A059] font-semibold">Envíos a todo México</span>
+          <span className="hidden lg:inline tracking-wider uppercase text-[10px] text-[#C5A059] font-semibold">Atención personalizada</span>
         </div>
       </div>
     </div>

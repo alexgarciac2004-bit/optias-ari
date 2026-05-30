@@ -77,7 +77,7 @@ export default function MegaMenu({ onClose }) {
               { l: "Lentes graduadas", to: "/catalogo?type=Graduados" },
               { l: "Adaptación contacto", to: "/citas" },
               { l: "Ajuste y mantenimiento", to: "/citas" },
-              { l: "Garantía 1 año", to: "/nosotros" },
+              { l: "Garantía 10 meses", to: "/nosotros" },
               { l: "Agendar cita", to: "/citas" },
             ].map((s) => (
               <li key={s.l}>
@@ -95,13 +95,13 @@ export default function MegaMenu({ onClose }) {
           </ul>
         </div>
 
-        <Link to="/catalogo" onClick={onClose} className="col-span-3 group block relative overflow-hidden h-[280px]" data-testid="mega-featured">
-          <img src={FEATURED_IMG} alt="Destacados" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <Link to="/citas" onClick={onClose} className="col-span-3 group block relative overflow-hidden h-[280px]" data-testid="mega-featured">
+          <img src={FEATURED_IMG} alt="Agenda tu cita" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#701A3D]/90 via-[#701A3D]/30 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-            <div className="eyebrow text-[#C5A059] mb-2">Nueva colección</div>
-            <div className="font-serif text-2xl leading-tight mb-2">Oversize Couture</div>
-            <div className="text-xs uppercase tracking-widest border-b border-[#C5A059] pb-1 inline-block">Descubrir →</div>
+            <div className="eyebrow text-[#C5A059] mb-2">Servicio profesional</div>
+            <div className="font-serif text-2xl leading-tight mb-2">Agenda tu examen visual</div>
+            <div className="text-xs uppercase tracking-widest border-b border-[#C5A059] pb-1 inline-block">Reservar →</div>
           </div>
         </Link>
       </div>

@@ -496,21 +496,30 @@ async def stripe_webhook(request: Request):
 
 # ---------- Seed demo data ----------
 DEMO_PRODUCTS = [
-    {"name": "Aviador Clásico Dorado", "brand": "Ari Signature", "description": "Marco aviador en metal dorado con lentes polarizadas UV400.", "price": 1890.0, "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80", "style": "Clásico", "type": "Sol", "gender": "Unisex", "stock": 15, "featured": True},
-    {"name": "Wayfarer Moderno Negro", "brand": "Ari Studio", "description": "Estilo wayfarer con acetato negro mate. Ligeros y elegantes.", "price": 1450.0, "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80", "style": "Moderno", "type": "Sol", "gender": "Unisex", "stock": 20, "featured": True},
-    {"name": "Cat-Eye Vintage Tortuga", "brand": "Ari Heritage", "description": "Diseño ojo de gato inspirado en los años 60. Acetato tortuga.", "price": 1750.0, "image": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&q=80", "style": "Vintage", "type": "Graduados", "gender": "Mujer", "stock": 12, "featured": True},
-    {"name": "Sport Pro Deportivo", "brand": "Ari Active", "description": "Lente deportivo envolvente con protección máxima y agarre antideslizante.", "price": 2100.0, "image": "https://images.unsplash.com/photo-1577803645773-f96470509666?w=800&q=80", "style": "Deportivo", "type": "Sol", "gender": "Unisex", "stock": 18, "featured": True},
-    {"name": "Round Lector Oro Rosa", "brand": "Ari Read", "description": "Lentes de lectura redondos con montura oro rosa. Ligeros.", "price": 980.0, "image": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&q=80", "style": "Clásico", "type": "Lectura", "gender": "Unisex", "stock": 30, "featured": False},
-    {"name": "Oversize Square Nude", "brand": "Ari Couture", "description": "Marco cuadrado oversize en color nude con lentes degradadas.", "price": 2250.0, "image": "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=80", "style": "Oversize", "type": "Sol", "gender": "Mujer", "stock": 10, "featured": True},
-    {"name": "Kids Flex Infantil Azul", "brand": "Ari Kids", "description": "Montura flexible para niños en azul vibrante. Resistente a golpes.", "price": 890.0, "image": "https://images.unsplash.com/photo-1577744486770-020ab432da65?w=800&q=80", "style": "Infantil", "type": "Graduados", "gender": "Niño", "stock": 25, "featured": False},
-    {"name": "Pantos Moderno Transparente", "brand": "Ari Studio", "description": "Marco pantos acetato cristal transparente. Ultra minimalista.", "price": 1650.0, "image": "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=800&q=80", "style": "Moderno", "type": "Graduados", "gender": "Unisex", "stock": 14, "featured": False},
-    {"name": "Retro Round Vintage Oro", "brand": "Ari Heritage", "description": "Lente redondo retro con montura dorada metálica fina.", "price": 1390.0, "image": "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=800&q=80", "style": "Vintage", "type": "Sol", "gender": "Unisex", "stock": 16, "featured": False},
-    {"name": "Rimless Clásico Titanio", "brand": "Ari Signature", "description": "Montura al aire en titanio puro. Prácticamente invisible.", "price": 2890.0, "image": "https://images.unsplash.com/photo-1568412686359-de74a2b55cb6?w=800&q=80", "style": "Clásico", "type": "Graduados", "gender": "Hombre", "stock": 8, "featured": True},
-    {"name": "Performance Ciclismo", "brand": "Ari Active", "description": "Máscara envolvente para ciclismo, ultraligera, lente espejada.", "price": 1980.0, "image": "https://images.unsplash.com/photo-1625591341337-13156be7b7d1?w=800&q=80", "style": "Deportivo", "type": "Sol", "gender": "Unisex", "stock": 12, "featured": False},
-    {"name": "Butterfly Oversize Negro", "brand": "Ari Couture", "description": "Forma mariposa en negro sólido con detalles dorados en las esquinas.", "price": 2390.0, "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80", "style": "Oversize", "type": "Sol", "gender": "Mujer", "stock": 9, "featured": False},
-    {"name": "Kids Square Rosa", "brand": "Ari Kids", "description": "Montura cuadrada rosa para niñas, cómoda y resistente.", "price": 820.0, "image": "https://images.unsplash.com/photo-1513146234495-a5a8d1c5c47c?w=800&q=80", "style": "Infantil", "type": "Graduados", "gender": "Niña", "stock": 22, "featured": False},
-    {"name": "Browline Vintage Tortuga", "brand": "Ari Heritage", "description": "Estilo browline clásico de los 50. Combinación metal y acetato tortuga.", "price": 1590.0, "image": "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=800&q=80", "style": "Vintage", "type": "Graduados", "gender": "Hombre", "stock": 11, "featured": False},
-    {"name": "Hexagonal Moderno Oro", "brand": "Ari Studio", "description": "Forma hexagonal única con marco dorado y lentes verdes.", "price": 1890.0, "image": "https://images.unsplash.com/photo-1615812214207-34e3be6812df?w=800&q=80", "style": "Moderno", "type": "Sol", "gender": "Unisex", "stock": 13, "featured": False},
+    {
+        "name": "Dignity DG-65003 · Acetate Black",
+        "brand": "Dignity Eyewear",
+        "description": "Marco cuadrado en acetato hecho a mano. Frente negro con base cristal transparente, varillas tono jade. Estilo contemporáneo y elegante.",
+        "price": 1300.0,
+        "image": "https://customer-assets.emergentagent.com/job_optica-ari/artifacts/2vjuhd3z_1%2C300%20modelo%202.jpeg",
+        "style": "Moderno", "type": "Graduados", "gender": "Unisex", "stock": 5, "featured": True,
+    },
+    {
+        "name": "Eternal Glamour 0378 · Aviador Doble Puente",
+        "brand": "Eternal Glamour",
+        "description": "Aviador cuadrado con doble puente metálico plata y frente acetato negro. Diseño de carácter inspirado en la elegancia italiana.",
+        "price": 1600.0,
+        "image": "https://customer-assets.emergentagent.com/job_optica-ari/artifacts/o44kjd12_1%2C600%20modelo%203.jpeg",
+        "style": "Vintage", "type": "Graduados", "gender": "Hombre", "stock": 4, "featured": True,
+    },
+    {
+        "name": "St. Bar STB-19001 · Stainless Steel",
+        "brand": "St. Bar Eyewear",
+        "description": "Marco aviador cuadrado en acero inoxidable plateado. Ligero, resistente y atemporal — un clásico que nunca pasa de moda.",
+        "price": 1300.0,
+        "image": "https://customer-assets.emergentagent.com/job_optica-ari/artifacts/20p3kj7h_1%2C300%20modelo%204.jpeg",
+        "style": "Clásico", "type": "Graduados", "gender": "Hombre", "stock": 5, "featured": True,
+    },
 ]
 
 

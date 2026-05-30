@@ -103,7 +103,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-10">
             {[
               { icon: Eye, title: "Examen visual profesional", desc: "Diagnóstico completo con equipo de última generación." },
-              { icon: ShieldCheck, title: "Garantía 1 año", desc: "Todos nuestros marcos cuentan con garantía de fabricación." },
+              { icon: ShieldCheck, title: "Garantía 10 meses", desc: "Todos nuestros marcos cuentan con garantía de 10 meses." },
               { icon: Sparkles, title: "Asesoría personalizada", desc: "Te ayudamos a elegir el marco ideal para tu rostro y estilo." },
             ].map((v, i) => (
               <div key={i} className="border-l border-[#C5A059]/40 pl-6" data-testid={`value-${i}`}>
