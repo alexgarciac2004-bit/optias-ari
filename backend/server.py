@@ -13,12 +13,7 @@ import jwt
 import bcrypt
 from datetime import datetime, timezone, timedelta
 
-from emergentintegrations.payments.stripe.checkout import (
-    StripeCheckout,
-    CheckoutSessionResponse,
-    CheckoutStatusResponse,
-    CheckoutSessionRequest,
-)
+import stripe
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / ".env")
@@ -32,7 +27,7 @@ JWT_ALGO = "HS256"
 ADMIN_EMAIL = os.environ["ADMIN_EMAIL"]
 ADMIN_PASSWORD = os.environ["ADMIN_PASSWORD"]
 STRIPE_API_KEY = os.environ["STRIPE_API_KEY"]
-
+stripe.api_key = STRIPE_API_KEY
 app = FastAPI(title="Óptica Ari API")
 api_router = APIRouter(prefix="/api")
 security = HTTPBearer()
